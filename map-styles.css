@@ -24,12 +24,68 @@
     margin-bottom: 3rem;
 }
 
-#map {
+.map-container svg {
     width: 100%;
     height: 500px;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     position: relative;
     border-radius: 15px;
+    /* Estilo de fundo similar ao da imagem de referência (cor clara) */
+    background-color: #f5f5dc; /* Bege claro */
+    border: 1px solid #ccc;
+}
+
+/* Estilos para os municípios coloridos pelo script Python */
+.alto-tiete {
+    fill: #C7CEEA !important; /* Azul Claro/Lavanda */
+    stroke: #333;
+    stroke-width: 0.5;
+    transition: fill 0.3s;
+}
+
+.guarulhos {
+    fill: #FF9FF3 !important; /* Rosa Choque */
+    stroke: #333;
+    stroke-width: 0.5;
+    transition: fill 0.3s;
+}
+
+.nao-atende {
+    fill: #f0f0f0 !important; /* Cinza Claro */
+    stroke: #333;
+    stroke-width: 0.5;
+    transition: fill 0.3s;
+}
+
+/* Município de São Paulo (mun_3550308) - Será dividido internamente */
+.zona-sp {
+    fill: #cccccc !important; /* Cinza para SP antes da divisão */
+    stroke: #333;
+    stroke-width: 0.5;
+    transition: fill 0.3s;
+}
+
+/* Estilos de Hover */
+.alto-tiete:hover, .guarulhos:hover, .zona-sp:hover {
+    fill-opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Remover estilos de marcadores antigos, pois o mapa agora é SVG */
+.map-marker, .map-marker::after, .map-marker-popup {
+    display: none !important;
+}
+
+/* Ajustar responsividade para o SVG */
+@media (max-width: 768px) {
+    .map-container svg {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container svg {
+        height: 250px;
+    }
 }
 
 /* Legenda do Mapa */
@@ -152,58 +208,7 @@
 }
 
 /* Estilos para os Marcadores do Mapa */
-.map-marker {
-    width: 30px;
-    height: 30px;
-    background: var(--main-color);
-    border: 3px solid #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(4, 73, 249, 0.4);
-    transition: all 0.3s ease;
-    position: relative;
-}
 
-.map-marker::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 3px solid var(--main-color);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
-
-.map-marker:hover {
-    transform: scale(1.2);
-    box-shadow: 0 6px 20px rgba(4, 73, 249, 0.6);
-}
-
-.map-marker-popup {
-    background: var(--black);
-    border: 1px solid var(--main-color);
-    border-radius: 8px;
-    padding: 12px 16px;
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
 
 /* Responsividade */
 @media (max-width: 768px) {
