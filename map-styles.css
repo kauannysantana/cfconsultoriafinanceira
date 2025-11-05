@@ -2,18 +2,13 @@
 .map-section {
     background: rgba(0, 121, 251, 0.3);
     padding: 4rem 2rem;
-    margin: 4rem 0;
+    margin: 4rem auto;
     border-radius: 15px;
-}
-
-.map-description {
+    max-width: 1200px;
     text-align: center;
-    font-size: 1.8rem;
-    color: #ccc;
-    margin-bottom: 3rem;
 }
 
-/* Container do Mapa */
+/* Container centralizado do Mapa */
 .map-container {
     position: relative;
     background: var(--black);
@@ -21,17 +16,55 @@
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(4, 73, 249, 0.15);
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .map-container svg {
     width: 100%;
     height: 500px;
-    position: relative;
     border-radius: 15px;
-    /* Estilo de fundo similar ao da imagem de referência (cor clara) */
-    background-color: rgba(0, 121, 251, 0.3); /* padrao do site */
+    background-color: rgba(0, 121, 251, 0.3);
 }
+
+/* Legenda */
+.map-legend {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(19, 19, 26, 0.95);
+    border: 1px solid rgba(4, 73, 249, 0.3);
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+/* Mantém o resto igual */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ... resto das cores e responsividade continua igual ... */
+
 
 /* Estilos para os municípios coloridos pelo script Python */
 .alto-tiete {
@@ -87,36 +120,6 @@
     }
 }
 
-/* Legenda do Mapa */
-.map-legend {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(19, 19, 26, 0.95);
-    border: 1px solid rgba(4, 73, 249, 0.3);
-    border-radius: 10px;
-    padding: 15px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    z-index: 10;
-    backdrop-filter: blur(10px);
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.3rem;
-    color: #fff;
-}
-
-.legend-color {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
 
 .legend-color.zona-norte {
     background: #FF6B6B;
