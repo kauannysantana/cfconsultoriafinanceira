@@ -10,6 +10,9 @@
 
 /* Container centralizado do Mapa */
 .map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     background: var(--black);
     border: var(--border);
@@ -18,9 +21,6 @@
     box-shadow: 0 10px 40px rgba(4, 73, 249, 0.15);
     margin: 0 auto 3rem auto;
     max-width: 900px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .map-container svg {
