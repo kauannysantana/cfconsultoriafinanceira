@@ -8,6 +8,14 @@
     text-align: center;
 }
 
+.map-description {
+    text-align: center; 
+    font-size: 1.8rem; 
+    color: #ccc; 
+    margin-bottom: 3rem;
+}
+
+
 /* Container centralizado do Mapa */
 .map-container {
     display: flex;
@@ -46,16 +54,6 @@
     z-index: 10;
     backdrop-filter: blur(10px);
 }
-
-.map-description p{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.3rem;
-    color: #fff;
-}
-
-
 
 
 /* Mantém o resto igual */
