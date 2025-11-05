@@ -32,7 +32,6 @@
     /* Estilo de fundo similar ao da imagem de referência (cor clara) */
     background-color: rgba(0, 121, 251, 0.3); /* Bege claro */
     border: 1px solid var(--border);
-    align-items: center;
 }
 
 /* Estilos para os municípios coloridos pelo script Python */
