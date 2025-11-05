@@ -30,8 +30,7 @@
     position: relative;
     border-radius: 15px;
     /* Estilo de fundo similar ao da imagem de referência (cor clara) */
-    background-color: rgba(0, 121, 251, 0.3); /* Bege claro */
-    border: 1px solid var(--border);
+    background-color: rgba(0, 121, 251, 0.3); /* padrao do site */
 }
 
 /* Estilos para os municípios coloridos pelo script Python */
