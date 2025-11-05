@@ -4,41 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>CF Consultoria Financeira</title>
     <script src="script.js"></script>
+    <script src="map-script.js"></script>
     <!-- Ícone do WhatsApp para o botão flutuante -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17693972275"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17693972275');
-</script>
-    <!-- Event snippet for Contato conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17693972275/PCGICIPjw7cbELOukvVB',
-      'value': 1.0,
-      'currency': 'BRL',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
-
 </head>
 <body>
     <header class="header">
@@ -90,6 +64,63 @@ function gtag_report_conversion(url) {
                   <p> Parcelas que cabem no seu bolso </p> 
                   <p> Pagamento via PIX em até 24hrs </p> 
                 <a href="#services" class="btn"> Nossos Serviços </a>  
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Mapa de Atendimento -->
+    <section class="map-section" id="map-section">
+        <h2 class="title">Área de <span>Atendimento</span></h2>
+        <p class="map-description">Atendemos com excelência as principais regiões de São Paulo, Guarulhos e Alto Tietê</p>
+        
+        <div class="map-container">
+            <div id="map" class="map"></div>
+            
+            <!-- Legenda -->
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-color zona-norte"></span>
+                    <span class="legend-text">Zona Norte</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color zona-leste"></span>
+                    <span class="legend-text">Zona Leste</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color zona-oeste"></span>
+                    <span class="legend-text">Zona Oeste</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color zona-sul"></span>
+                    <span class="legend-text">Zona Sul</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color alto-tiete"></span>
+                    <span class="legend-text">Alto Tietê</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color guarulhos"></span>
+                    <span class="legend-text">Guarulhos</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cards informativos -->
+        <div class="map-info-cards">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Cobertura Completa</h3>
+                <p>Atendemos toda a região metropolitana de São Paulo com agilidade e eficiência</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Atendimento Rápido</h3>
+                <p>Aprovação em minutos e dinheiro na sua conta em até 24 horas</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Suporte Próximo</h3>
+                <p>Consultor disponível para tirar suas dúvidas e acompanhar seu processo</p>
             </div>
         </div>
     </section>
@@ -183,6 +214,4 @@ function gtag_report_conversion(url) {
 
     
 </body>
-
 </html>
-
