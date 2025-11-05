@@ -47,6 +47,17 @@
     backdrop-filter: blur(10px);
 }
 
+.map-description p{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+
+
+
 /* Mantém o resto igual */
 .legend-item {
     display: flex;
