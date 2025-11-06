@@ -1,179 +1,114 @@
-/* ===== SEÇÃO DE MAPA ===== */
+/* Estilos para a seção do mapa */
 .map-section {
-    background: rgba(0, 121, 251, 0.3);
-    padding: 4rem 2rem;
-    margin: 4rem auto;
-    border-radius: 15px;
-    max-width: 1200px;
-    text-align: center;
-}
-
-.map-description p{
-    text-align: center; 
-    font-size: 1.8rem; 
-    color: white; 
-    margin-bottom: 3rem;
-}
-
-
-/* Container centralizado do Mapa */
-.map-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 80px 5%;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
     position: relative;
-    background: var(--black);
-    border: var(--border);
-    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(4, 73, 249, 0.15);
-    margin: 0 auto 3rem auto;
-    max-width: 900px;
 }
 
-.map-container svg {
-    width: 100%;
-    height: 500px;
-    border-radius: 15px;
-    background-color: rgba(0, 121, 251, 0.3);
-}
-
-/* Legenda */
-.map-legend {
+.map-section::before {
+    content: '';
     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(19, 19, 26, 0.95);
-    border: 1px solid rgba(4, 73, 249, 0.3);
-    border-radius: 10px;
-    padding: 15px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    z-index: 10;
-    backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(4, 73, 249, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
-
-/* Mantém o resto igual */
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.3rem;
+.map-section .title {
+    text-align: center;
+    font-size: 3rem;
     color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
 }
 
-.legend-color {
-    width: 16px;
-    height: 16px;
+.map-section .title span {
+    color: #0449f9;
+    text-shadow: 0 0 20px rgba(4, 73, 249, 0.5);
+}
+
+.map-description {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Container do Google Maps */
+.google-map-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(4, 73, 249, 0.3),
+        0 0 40px rgba(4, 73, 249, 0.2);
+    position: relative;
+    z-index: 1;
+    background: #1a1a2e;
+    border: 2px solid rgba(4, 73, 249, 0.3);
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+/* Animação de carregamento do mapa */
+.google-map-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(4, 73, 249, 0.2);
+    border-top-color: #0449f9;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: spin 1s linear infinite;
+    z-index: 0;
 }
 
-/* ... resto das cores e responsividade continua igual ... */
-
-
-/* Estilos para os municípios coloridos pelo script Python */
-.alto-tiete {
-    fill: #C7CEEA !important; /* Azul Claro/Lavanda */
-    stroke: #333;
-    stroke-width: 0.5;
-    transition: fill 0.3s;
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.guarulhos {
-    fill: #FF9FF3 !important; /* Rosa Choque */
-    stroke: #333;
-    stroke-width: 0.5;
-    transition: fill 0.3s;
-}
-
-.nao-atende {
-    fill: #f0f0f0 !important; /* Cinza Claro */
-    stroke: #333;
-    stroke-width: 0.5;
-    transition: fill 0.3s;
-}
-
-/* Município de São Paulo (mun_3550308) - Será dividido internamente */
-.zona-sp {
-    fill: #cccccc !important; /* Cinza para SP antes da divisão */
-    stroke: #333;
-    stroke-width: 0.5;
-    transition: fill 0.3s;
-}
-
-/* Estilos de Hover */
-.alto-tiete:hover, .guarulhos:hover, .zona-sp:hover {
-    fill-opacity: 0.8;
-    cursor: pointer;
-}
-
-/* Remover estilos de marcadores antigos, pois o mapa agora é SVG */
-.map-marker, .map-marker::after, .map-marker-popup {
-    display: none !important;
-}
-
-/* Ajustar responsividade para o SVG */
-@media (max-width: 768px) {
-    .map-container svg {
-        height: 350px;
-    }
-}
-
-@media (max-width: 480px) {
-    .map-container svg {
-        height: 250px;
-    }
-}
-
-
-.legend-color.zona-norte {
-    background: #FF6B6B;
-}
-
-.legend-color.zona-leste {
-    background: #4ECDC4;
-}
-
-.legend-color.zona-oeste {
-    background: #FFE66D;
-}
-
-.legend-color.zona-sul {
-    background: #95E1D3;
-}
-
-.legend-color.alto-tiete {
-    background: #C7CEEA;
-}
-
-.legend-color.guarulhos {
-    background: #FF9FF3;
-}
-
-.legend-text {
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-/* Cards Informativos */
+/* Cards informativos */
 .map-info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .info-card {
-    background: var(--black);
-    border: var(--border);
-    border-radius: 10px;
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
     padding: 2.5rem;
+    border-radius: 15px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(4, 73, 249, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
 }
@@ -182,97 +117,139 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(4, 73, 249, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.info-card:hover::before {
-    left: 100%;
+    background: linear-gradient(135deg, rgba(4, 73, 249, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .info-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--main-color);
-    box-shadow: 0 15px 35px rgba(4, 73, 249, 0.2);
+    transform: translateY(-10px);
+    border-color: #0449f9;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(4, 73, 249, 0.3);
+}
+
+.info-card:hover::before {
+    opacity: 1;
 }
 
 .info-card i {
     font-size: 3rem;
-    color: var(--main-color);
-    margin-bottom: 1rem;
+    color: #0449f9;
+    margin-bottom: 1.5rem;
     display: block;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 10px rgba(4, 73, 249, 0.5));
+}
+
+.info-card:hover i {
+    transform: scale(1.2) rotateY(360deg);
+    color: #4ECDC4;
+    filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.7));
 }
 
 .info-card h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #fff;
     margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .info-card p {
-    font-size: 1.4rem;
-    color: #ccc;
+    font-size: 1rem;
+    color: #e0e0e0;
     line-height: 1.6;
 }
 
-/* Estilos para os Marcadores do Mapa */
-
-
 /* Responsividade */
 @media (max-width: 768px) {
+    .map-section {
+        padding: 60px 3%;
+    }
+
+    .map-section .title {
+        font-size: 2rem;
+    }
+
+    .map-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
     #map {
-        height: 350px;
+        height: 400px;
     }
-    
-    .map-legend {
-        bottom: 10px;
-        left: 10px;
-        gap: 10px;
-        padding: 12px 15px;
-        font-size: 1.1rem;
-    }
-    
-    .legend-color {
-        width: 14px;
-        height: 14px;
-    }
-    
+
     .map-info-cards {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .info-card {
         padding: 2rem;
+    }
+
+    .info-card i {
+        font-size: 2.5rem;
+    }
+
+    .info-card h3 {
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 480px) {
+    .map-section .title {
+        font-size: 1.5rem;
+    }
+
     #map {
-        height: 250px;
+        height: 350px;
     }
-    
-    .map-legend {
-        flex-direction: column;
-        gap: 8px;
+
+    .info-card {
+        padding: 1.5rem;
     }
-    
-    .legend-item {
-        font-size: 1.2rem;
-    }
-    
-    .info-card i {
-        font-size: 2.5rem;
-    }
-    
-    .info-card h3 {
-        font-size: 1.7rem;
-    }
-    
-    .info-card p {
-        font-size: 1.3rem;
-    }
+}
+
+/* Customização dos controles do Google Maps */
+.gm-style .gm-style-iw-c {
+    padding: 0 !important;
+    border-radius: 15px !important;
+    box-shadow: 0 8px 32px rgba(4, 73, 249, 0.3) !important;
+}
+
+.gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+}
+
+.gm-style .gm-style-iw-t::after {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+    box-shadow: 0 4px 15px rgba(4, 73, 249, 0.3) !important;
+}
+
+/* Botão de fechar do InfoWindow */
+.gm-ui-hover-effect {
+    opacity: 1 !important;
+    background: rgba(4, 73, 249, 0.2) !important;
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+    top: 10px !important;
+    right: 10px !important;
+}
+
+.gm-ui-hover-effect:hover {
+    background: rgba(4, 73, 249, 0.4) !important;
+}
+
+.gm-ui-hover-effect > span {
+    background-color: #ffffff !important;
+    width: 16px !important;
+    height: 16px !important;
 }
