@@ -65,6 +65,34 @@ function initMap() {
             color: '#FF9FF3',
             icon: '🟠',
             description: 'Centro, Pimentas, Macedo, Taboão'
+        },
+        {
+            name: 'Arujá',
+            coords: [-23.3969, -46.3204],
+            color: '#FFD700', // Ouro
+            icon: '⭐',
+            description: 'Atendimento em toda a região de Arujá'
+        },
+        {
+            name: 'Itapevi',
+            coords: [-23.5492, -46.9331],
+            color: '#00CED1', // Turquesa Escuro
+            icon: '💎',
+            description: 'Atendimento em toda a região de Itapevi'
+        },
+        {
+            name: 'Santo André',
+            coords: [-23.6638, -46.5322],
+            color: '#8A2BE2', // Azul Violeta
+            icon: '💜',
+            description: 'Atendimento em toda a região de Santo André'
+        },
+        {
+            name: 'Santa Isabel',
+            coords: [-23.3175, -46.2255],
+            color: '#3CB371', // Verde Médio Primavera
+            icon: '🍀',
+            description: 'Atendimento em toda a região de Santa Isabel'
         }
     ];
 
